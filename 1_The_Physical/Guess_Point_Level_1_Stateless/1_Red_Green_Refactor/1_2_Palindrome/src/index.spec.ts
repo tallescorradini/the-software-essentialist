@@ -12,4 +12,8 @@ describe('palindrome checker', () => {
   it("should know 'bill' is not a palindrome", () => {
     expect(isPalindrome('bill')).toBe(false);
   });
+
+  it("should identify a palindrome regardless of casing such as 'Mom'", () => {
+    expect(isPalindrome('Mom')).toBe(true);
+  });
 });

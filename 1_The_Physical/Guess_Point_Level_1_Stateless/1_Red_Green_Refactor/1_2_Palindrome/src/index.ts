@@ -1,5 +1,9 @@
 export function isPalindrome(input: string) {
-  if (input === input.split('').reverse().join('')) return true;
+  if (
+    input.toLowerCase() ===
+    input.split('').reverse().join('').toLocaleLowerCase()
+  )
+    return true;
 
   return false;
 }
