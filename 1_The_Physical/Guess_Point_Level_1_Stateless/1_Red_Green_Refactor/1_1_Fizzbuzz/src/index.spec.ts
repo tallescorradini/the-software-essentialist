@@ -1,7 +1,15 @@
 import { fizzbuzz } from './fizzbuzz';
 
 describe('fizzbuzz', () => {
-  it("should output 'Fizz' if input is 3 because it is multiple of three", () => {
-    expect(fizzbuzz(3)).toBe('Fizz');
-  });
+  it.each`
+    input
+    ${3}
+    ${3 * 2}
+    ${3 * 7}
+  `(
+    "should output 'Fizz' if input is $input because it is multiple of three",
+    ({ input }) => {
+      expect(fizzbuzz(input)).toBe('Fizz');
+    }
+  );
 });
