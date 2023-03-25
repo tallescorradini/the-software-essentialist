@@ -1,9 +1,13 @@
 export function isPalindrome(input: string) {
   if (
-    input.toLowerCase().replace(/\s/g, '') ===
-    input.split('').reverse().join('').toLocaleLowerCase().replace(/\s/g, '')
+    removeSpacing(input.toLowerCase()) ===
+    removeSpacing(input.split('').reverse().join('').toLocaleLowerCase())
   )
     return true;
 
   return false;
+}
+
+function removeSpacing(string: string) {
+  return string.replace(/\s/g, '');
 }
