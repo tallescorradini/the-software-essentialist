@@ -16,4 +16,12 @@ describe('palindrome checker', () => {
   it("should identify a palindrome regardless of casing such as 'Mom'", () => {
     expect(isPalindrome('Mom')).toBe(true);
   });
+
+  it("should detect palindromes in phrases such as 'Was It A Rat I Saw'", () => {
+    expect(isPalindrome('Was It A Rat I Saw')).toBe(true);
+  });
+
+  it("should detect palindromes in phrases such as 'Never Odd or Even'", () => {
+    expect(isPalindrome('Never Odd or Even')).toBe(true);
+  });
 });
