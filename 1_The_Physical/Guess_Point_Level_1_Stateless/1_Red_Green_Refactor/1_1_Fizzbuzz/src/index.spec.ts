@@ -13,7 +13,15 @@ describe('fizzbuzz', () => {
     }
   );
 
-  it("should output 'Buzz' if input is 5 because it is multiple of 5", () => {
-    expect(fizzbuzz(5)).toBe('Buzz');
-  });
+  it.each`
+    input
+    ${5}
+    ${5 * 5}
+    ${5 * 13}
+  `(
+    "should output 'Buzz' if input is $input because it is multiple of 5",
+    ({ input }) => {
+      expect(fizzbuzz(input)).toBe('Buzz');
+    }
+  );
 });
