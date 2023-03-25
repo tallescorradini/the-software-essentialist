@@ -25,9 +25,15 @@ describe('fizzbuzz', () => {
     }
   );
 
-  it(
-    "should output 'FizzBuzz' if input is 15 because it is multiple of both 3 and 5", () => {
-      expect(fizzbuzz(15)).toBe('FizzBuzz')
+  it.each`
+    input
+    ${3 * 5}
+    ${3 * 5 * 2}
+    ${3 * 5 * 5}
+  `(
+    "should output 'FizzBuzz' if input is $input because it is multiple of both 3 and 5",
+    ({ input }) => {
+      expect(fizzbuzz(input)).toBe('FizzBuzz');
     }
   );
 });
