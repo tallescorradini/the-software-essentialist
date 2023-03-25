@@ -40,4 +40,8 @@ describe('fizzbuzz', () => {
   it('should output 4 back as string because it is not multiple of either 3 or 5', () => {
     expect(fizzbuzz(4)).toBe('4');
   });
+
+  it('should not accept -1 because it is less than 1', () => {
+    expect(() => fizzbuzz(-1)).toThrow('Input should be more than 1');
+  });
 });
