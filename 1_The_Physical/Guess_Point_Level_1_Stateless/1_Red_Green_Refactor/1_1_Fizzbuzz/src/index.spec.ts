@@ -36,4 +36,8 @@ describe('fizzbuzz', () => {
       expect(fizzbuzz(input)).toBe('FizzBuzz');
     }
   );
+
+  it('should output 4 back as string because it is not multiple of either 3 or 5', () => {
+    expect(fizzbuzz(4)).toBe('4');
+  });
 });
