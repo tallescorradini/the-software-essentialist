@@ -12,4 +12,8 @@ describe('fizzbuzz', () => {
       expect(fizzbuzz(input)).toBe('Fizz');
     }
   );
+
+  it("should output 'Buzz' if input is 5 because it is multiple of 5", () => {
+    expect(fizzbuzz(5)).toBe('Buzz');
+  });
 });
