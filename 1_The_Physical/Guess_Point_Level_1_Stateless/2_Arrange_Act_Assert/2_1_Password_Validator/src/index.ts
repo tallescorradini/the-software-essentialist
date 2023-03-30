@@ -17,5 +17,11 @@ export class PasswordValidator {
         result: false,
         errors: ['It must contain at least 1 digit'],
       };
+
+    if (!/[A-Z]+/.test(password))
+      return {
+        result: false,
+        errors: ['It must contain at least 1 upper case letter'],
+      };
   }
 }

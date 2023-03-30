@@ -29,4 +29,13 @@ describe('password validator', () => {
       })
     );
   });
+
+  it("returns false if password does not contain at least 1 upper case letter, such as 'no-upper-case-1'", () => {
+    expect(PasswordValidator.validate('no-upper-case-1')).toStrictEqual(
+      expect.objectContaining({
+        result: false,
+        errors: ['It must contain at least 1 upper case letter'],
+      })
+    );
+  });
 });
