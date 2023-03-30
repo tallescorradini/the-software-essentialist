@@ -38,4 +38,16 @@ describe('password validator', () => {
       })
     );
   });
+
+  it("returns both errors messages if password has no digit and no upper case letter, such as 'can-t-do-it'", () => {
+    expect(PasswordValidator.validate('can-t-do-it')).toStrictEqual(
+      expect.objectContaining({
+        result: false,
+        errors: expect.arrayContaining([
+          'It must contain at least 1 digit',
+          'It must contain at least 1 upper case letter',
+        ]),
+      })
+    );
+  });
 });
