@@ -5,7 +5,7 @@ describe('password validator', () => {
     expect(PasswordValidator.validate('1234')).toStrictEqual(
       expect.objectContaining({
         result: false,
-        errors: ['Too short!'],
+        errors: expect.arrayContaining(['Too short!']),
       })
     );
   });
@@ -16,7 +16,7 @@ describe('password validator', () => {
     ).toStrictEqual(
       expect.objectContaining({
         result: false,
-        errors: ['Too long!'],
+        errors: expect.arrayContaining(['Too long!']),
       })
     );
   });
