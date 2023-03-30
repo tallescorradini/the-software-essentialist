@@ -11,5 +11,11 @@ export class PasswordValidator {
         result: false,
         errors: ['Too long!'],
       };
+
+    if (!/[0-9]+/.test(password))
+      return {
+        result: false,
+        errors: ['It must contain at least 1 digit'],
+      };
   }
 }

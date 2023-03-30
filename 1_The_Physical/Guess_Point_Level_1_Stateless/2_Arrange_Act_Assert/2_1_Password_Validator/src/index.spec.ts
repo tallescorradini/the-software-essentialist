@@ -20,4 +20,13 @@ describe('password validator', () => {
       })
     );
   });
+
+  it("returns false for passwords that do not contain at least 1 digit, such as 'Got-a-digit?'", () => {
+    expect(PasswordValidator.validate('Got-a-digit?')).toStrictEqual(
+      expect.objectContaining({
+        result: false,
+        errors: ['It must contain at least 1 digit'],
+      })
+    );
+  });
 });
