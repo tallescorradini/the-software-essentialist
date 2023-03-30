@@ -5,5 +5,11 @@ export class PasswordValidator {
         result: false,
         errors: ['Too short!'],
       };
+
+    if (password.length > 15)
+      return {
+        result: false,
+        errors: ['Too long!'],
+      };
   }
 }
