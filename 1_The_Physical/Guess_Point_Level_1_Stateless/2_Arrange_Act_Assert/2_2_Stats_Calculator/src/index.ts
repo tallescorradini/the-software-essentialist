@@ -5,6 +5,7 @@ export class StatsCalculator {
         accumulator: {
           minValue: number | undefined;
           maxValue: number | undefined;
+          numberOfElements: number | undefined;
         },
         currentInteger
       ) => {
@@ -21,11 +22,13 @@ export class StatsCalculator {
               : accumulator.maxValue > currentInteger
               ? accumulator.maxValue
               : currentInteger,
+          numberOfElements: sequenceOfIntegers.length,
         };
       },
       {
         minValue: undefined,
         maxValue: undefined,
+        numberOfElements: undefined,
       }
     );
   }
