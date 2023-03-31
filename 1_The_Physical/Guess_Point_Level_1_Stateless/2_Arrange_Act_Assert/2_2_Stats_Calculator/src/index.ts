@@ -4,6 +4,7 @@ export class StatsCalculator {
       (
         accumulator: {
           minValue: number | undefined;
+          maxValue: number | undefined;
         },
         currentInteger
       ) => {
@@ -14,10 +15,17 @@ export class StatsCalculator {
               : accumulator.minValue < currentInteger
               ? accumulator.minValue
               : currentInteger,
+          maxValue:
+            accumulator.maxValue === undefined
+              ? currentInteger
+              : accumulator.maxValue > currentInteger
+              ? accumulator.maxValue
+              : currentInteger,
         };
       },
       {
         minValue: undefined,
+        maxValue: undefined,
       }
     );
   }
