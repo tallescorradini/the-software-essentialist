@@ -24,4 +24,12 @@ describe('stats calculator', () => {
       })
     );
   });
+
+  it('should return the average value of a sequence of integers with up to 12 significant digits, such as 18.666666666667 in [2, 4, 21, -8, 53, 40]', () => {
+    expect(StatsCalculator.process([2, 4, 21, -8, 53, 40])).toStrictEqual(
+      expect.objectContaining({
+        average: 18.666666666667,
+      })
+    );
+  });
 });

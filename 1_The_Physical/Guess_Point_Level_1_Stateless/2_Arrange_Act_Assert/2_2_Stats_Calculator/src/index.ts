@@ -1,13 +1,16 @@
 export class StatsCalculator {
   static process(sequenceOfIntegers: number[]) {
-    return sequenceOfIntegers.reduce(
+    const { sum, ...stats } = sequenceOfIntegers.reduce(
       (
         accumulator: {
           minValue: number | undefined;
           maxValue: number | undefined;
           numberOfElements: number | undefined;
+          sum: number;
+          average: number | undefined;
         },
-        currentInteger
+        currentInteger,
+        currentIndex
       ) => {
         return {
           minValue:
@@ -23,13 +26,23 @@ export class StatsCalculator {
               ? accumulator.maxValue
               : currentInteger,
           numberOfElements: sequenceOfIntegers.length,
+          sum: accumulator.sum + currentInteger,
+          average: Number(
+            ((accumulator.sum + currentInteger) / (currentIndex + 1)).toFixed(
+              12
+            )
+          ),
         };
       },
       {
         minValue: undefined,
         maxValue: undefined,
         numberOfElements: undefined,
+        sum: 0,
+        average: undefined,
       }
     );
+
+    return stats;
   }
 }
